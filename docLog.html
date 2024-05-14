@@ -60,8 +60,53 @@
             height: 100%;
           }
         }
+        input, select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        input[type=submit] {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+
+        div {
+          border-radius: 5px;
+          background-color: #32c5edd2;
+          padding: 20px;
+        }
+
+        label {
+          color: rgb(248, 250, 251);
+        }
         
-       
+        .button1 {
+            background-color: #e432edd2; 
+            border: none;
+            color: white;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: 2px solid #b416b4;
 
 </style>
 
@@ -78,8 +123,19 @@
         </nav>
   
         <article>
-            
-               
+          <div>
+            <form>
+              <label for="uid"><b>USER ID</b></label>
+              <input type="text" id="uid" name="uid" placeholder="Your user ID...">
+              <br><br>
+              <label for="password"><b>PASSWORD</b></label>
+              <input type="password" id="password" name="password" placeholder="Your password..">
+              <input type="submit" value="LOGIN">
+            </form>
+            <label for="reg"><b>FOR NEW USERS</b></label>
+            <button class="button1">REGISTER</button>
+          </div>
+        
         </article>
     </section>
 
