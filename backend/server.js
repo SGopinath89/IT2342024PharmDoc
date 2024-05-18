@@ -10,9 +10,10 @@ app.use(cors());
 const regRoutes = require("./routes/registration");
 app.use(regRoutes);
 
+
 //connecting to DB
-const PORT = 8081;
-const URL = ""
+const PORT = 3001;
+const URL = "mongodb+srv://sanchithasamarasinghe2000:pro1@cluster0.ywpbykh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 mongoose.connect(URL)
     .then(() => {
         console.log("Connected")
