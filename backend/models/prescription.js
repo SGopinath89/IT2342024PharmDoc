@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const regSchema = mongoose.Schema({
+const presCSchema = mongoose.Schema({
     
     phoneNumber:{
         type:String,
@@ -27,4 +27,4 @@ const regSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('prescription',regSchema);
+module.exports = mongoose.model('prescription',presCSchema);
