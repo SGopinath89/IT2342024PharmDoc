@@ -3,7 +3,7 @@ const prescription = require('../models/prescription');
 
 const router = express.Router();
 
-router.post("/prescription/new", async (req , res)=>{
+router.post("/prescription/newpres", async (req , res)=>{
    try {
     const { phoneNumber, patientName , age , email , presC} = req.body;
     

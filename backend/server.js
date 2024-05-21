@@ -12,7 +12,7 @@ app.use(regRoutes);
 
 
 //connecting to DB
-const PORT = 3001;
+const PORT = 3002;
 const URL = "mongodb+srv://sanchithasamarasinghe2000:pro1@cluster0.ywpbykh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 mongoose.connect(URL)
     .then(() => {
