@@ -12,8 +12,8 @@ app.use(regRoutes);
 
 
 //connecting to DB
-const PORT = 3002;
-const URL = "mongodb+srv://sanchithasamarasinghe2000:pro1@cluster0.ywpbykh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const PORT = 3004;
+const URL = "mongodb+srv://sanchithasamarasinghe2000:pharmDoc123@cluster1.uxkudru.mongodb.net/pharmDoc?retryWrites=true&w=majority&appName=Cluster1"
 mongoose.connect(URL)
     .then(() => {
         console.log("Connected")
