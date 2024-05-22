@@ -23,21 +23,20 @@ router.post("/prescription/newpres", async (req , res)=>{
    }
 
    //view
-   router.get('/prescription',(req,res)=>{
-    prescription.find().exec((err,prescription)=>{
-        if(err){
-            return res.status(400).json({
-                error:err
-            });
+   router.get('/prescription',async (req,res)=>{
+        const prescList = await prescription.find();
+        res.send(prescList);
+
+        if(!prescList) {
+            res.status(500).json({success: false})
         }
-        return res.status(200).json({
-            success:true,
-            availablePrescriptions:prescription
+        res.send(prescList);
+        
 
 
         })
     });
-   });
-});
+  
+
 
 module.exports = router;
