@@ -107,7 +107,21 @@
             margin: 4px 2px;
             cursor: pointer;
             border: 2px solid #b416b4;
-
+        }
+        .button2 {
+            background-color: #32ed5ed2; 
+            border: none;
+            width: 100%;
+            color: white;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: 2px solid #16b448;
+        }
 </style>
 
 </head>
@@ -124,14 +138,15 @@
   
         <article>
           <div>
-            <form>
+            <form id="loginForm">
               <label for="uid"><b>USER ID</b></label>
               <input type="text" id="uid" name="uid" placeholder="Your user ID...">
               <br><br>
               <label for="password"><b>PASSWORD</b></label>
               <input type="password" id="password" name="password" placeholder="Your password..">
-              <input type="submit" value="LOGIN">
+              <button type="submit">Login</button>
             </form>
+            <a href="prescription.html"><button class="button2">Login</button></a>
             <label for="reg"><b>FOR NEW USERS</b></label>
             <a href="reg.html"><button class="button1">REGISTER</button></a>
           </div>
@@ -142,6 +157,27 @@
     <footer>
   
     </footer>
-        
+
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const userid = document.getElementById('uid').value;
+          const password = document.getElementById('password').value;
+
+          const response = await fetch('http://localhost:3005/routes/docreg', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ userid, password })
+          });
+
+          if (response.ok) {
+              alert('Login successful');
+          } else {
+              alert('Login failed');
+          }
+      });
+  </script>
 </body>
 </html>

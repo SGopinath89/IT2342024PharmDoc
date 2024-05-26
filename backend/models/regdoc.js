@@ -19,13 +19,6 @@ const docSchema = mongoose.Schema({
         type:String,
         require:true,
         unique:true
-    },
-    passwordCon:{
-        type:String,
-        require:true,
-        
-
     }
-
-}) 
+});
 module.exports = mongoose.model('regdoc',docSchema);
