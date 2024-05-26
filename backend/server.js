@@ -7,12 +7,13 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-const regRoutes = require("./routes/registration");
+const presRoutes = require("./routes/registration");
+const regRoutes = require("./routes/docreg");
 app.use(regRoutes);
-
+app.use(presRoutes);
 
 //connecting to DB
-const PORT = 3004;
+const PORT = 3005;
 const URL = "mongodb+srv://sanchithasamarasinghe2000:pharmDoc123@cluster1.uxkudru.mongodb.net/pharmDoc?retryWrites=true&w=majority&appName=Cluster1"
 mongoose.connect(URL)
     .then(() => {

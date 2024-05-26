@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dr.registration</title>
 
     <style>
         * {
@@ -72,22 +72,20 @@
      </header>
         
     <div>
-        <form>
-          <label for="uid"><b>FULL NAME</b></label>
-         <input type="text" id="uname" name="uname" placeholder="full name...">
+      <form id="registrationForm">
+          <label for="uname"><b>FULL NAME</b></label>
+         <center><input type="text" id="uname" name="uname" placeholder="full name..."></center>
           <br><br>
           <label for="uid"><b>SLMC REG NUMBER</b></label>
-          <input type="text" id="regno" name="regno" placeholder="SLMC number...">
+         <center><input type="text" id="regno" name="regno" placeholder="SLMC number..."></center>
           <br><br>
-          <label for="uid"><b>E-MAIL</b></label>
-          <input type="text" id="email" name="email" placeholder="E-MAIL...">
+          <label for="uemail"><b>E-MAIL</b></label>
+         <center><input type="text" id="email" name="email" placeholder="E-MAIL..."></center>
           <br><br>
           <label for="password"><b>PASSWORD</b></label>
-          <input type="password" id="password" name="password" placeholder="Your password..">
+          <center><input type="password" id="password" name="password" placeholder="Your password.."></center>
           <br><br>
-          <label for="password"><b>CONFIRM PASSWORD</b></label>
-          <input type="password" id="password" name="password" placeholder="Your password..">
-          <br><br>
+         
           <input type="submit" value="SUBMIT">
         </form>
        
@@ -95,7 +93,31 @@
 
     <footer>
         
-    </footer>    
+    </footer>   
+    <script>
+      document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const fullname = document.getElementById('uname').value;
+          const slmcregno = document.getElementById('regno').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          
+
+          const response = await fetch('http://localhost:3005/routes/docreg', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ username, userid,uemail, password })
+          });
+
+          if (response.ok) {
+              alert('Registration successful');
+          } else {
+              alert('Registration failed');
+          }
+      });
+  </script> 
       
 </body>
 </html>
