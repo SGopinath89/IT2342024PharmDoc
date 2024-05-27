@@ -62,6 +62,12 @@
           color: rgb(248, 250, 251);
         }
 
+        .container {
+          border-radius: 5px;
+          background-color: #71bdd0;
+          padding: 20px;
+        }
+
     </style>
 
 </head>
@@ -71,20 +77,20 @@
 
      </header>
         
-    <div>
+    <div class = "container">
       <form id="registrationForm">
           <label for="uname"><b>FULL NAME</b></label>
          <center><input type="text" id="uname" name="uname" placeholder="full name..."></center>
-          <br><br>
+          <br>
           <label for="uid"><b>SLMC REG NUMBER</b></label>
          <center><input type="text" id="regno" name="regno" placeholder="SLMC number..."></center>
-          <br><br>
+          <br>
           <label for="uemail"><b>E-MAIL</b></label>
          <center><input type="text" id="email" name="email" placeholder="E-MAIL..."></center>
-          <br><br>
+          <br>
           <label for="password"><b>PASSWORD</b></label>
           <center><input type="password" id="password" name="password" placeholder="Your password.."></center>
-          <br><br>
+          <br>
          
           <input type="submit" value="SUBMIT">
         </form>
@@ -103,12 +109,12 @@
           const password = document.getElementById('password').value;
           
 
-          const response = await fetch('http://localhost:3005/routes/docreg', {
+          const response = await fetch('http://localhost:3005/regdoc/newdoc', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
               },
-              body: JSON.stringify({ username, userid,uemail, password })
+              body: JSON.stringify({ fullname,slmcregno,email, password })
           });
 
           if (response.ok) {
