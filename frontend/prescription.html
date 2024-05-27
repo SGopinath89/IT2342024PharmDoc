@@ -30,7 +30,7 @@
 input[type=text], select, textarea {
   width: 40%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #ea9956;
   border-radius: 4px;
   resize: vertical;
 }
@@ -56,7 +56,7 @@ input[type=submit]:hover {
 
 .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #6bc6e2;
   padding: 20px;
 }
 
@@ -95,7 +95,7 @@ input[type=submit]:hover {
 
 
 <div class="container">
-  <form>
+  <form id ="prescriptionForm">
   <div class="row">
     <div class="col-25">
       <label for="number">PHONE NUMBER</label>
@@ -139,6 +139,31 @@ input[type=submit]:hover {
 </div>
 
 <footer></footer>
+
+<script>
+  document.getElementById('prescriptionForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const patientName = document.getElementById('patientName').value;
+      const email = document.getElementById('email').value;
+      const age = document.getElementById('age').value;
+      const presC = document.getElementById('prescription').value;
+
+      const response = await fetch('http://localhost:3005/prescription/newpres', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ phoneNumber,patientName,email,age,presC })
+      });
+
+      if (response.ok) {
+          alert('prescription saved');
+      } else {
+          alert('prescription not saved');
+      }
+  });
+</script> 
 
 </body>
 
