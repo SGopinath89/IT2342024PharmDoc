@@ -2,6 +2,7 @@ const express = require('express');
 const regdoc = require('../models/regdoc');
 
 const router = express.Router();
+const JWT_SECRET = 'your_jwt_secret';
 
 router.post("/regdoc/newdoc",async (req,res)=>{
     try{
@@ -25,21 +26,20 @@ router.post("/regdoc/newdoc",async (req,res)=>{
     
 });
 
-// User Login
 router.post('/regdoc', async (req, res) => {
     const { slmcregno, password } = req.body;
     try {
-        const user = await User.findOne({ slmcregno });
-        if (!user) return res.status(400).send('Invalid username or password');
+        const user = await regdoc.findOne({ slmcregno });
+        if (!user) return res.status(400).send('Invalid username ');
 
-        const isMatch = await user.comparePassword(password);
-        if (!isMatch) return res.status(400).send('Invalid username or password');
+        
+        if (password !== user.password) return res.status(400).send('Invalid username or password');
 
-        const token = jwt.sign({ id: user._id, slmcregno: user.slmcregno }, JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({ token });
+       
+        else res.status(200).json({ message: 'OK' });
     } catch (error) {
-        res.status(500).send('Internol server error');
+        res.status(500).send('internal server error');
     }
-    
 });
+
 module.exports = router;
