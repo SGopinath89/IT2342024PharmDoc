@@ -89,7 +89,7 @@
                 if (response.ok) {
                     const prescriptions = await response.json();
                     const prescriptionsDiv = document.getElementById('prescriptions');
-                    prescriptionsDiv.innerHTML = ''; // Clear existing content
+                    prescriptionsDiv.innerHTML = ''; 
 
                     prescriptions.forEach(prescription => {
                         const div = document.createElement('div');
